@@ -21,23 +21,20 @@ public partial class SchoolMgmtDbContext : DbContext
     {
         modelBuilder.Entity<Course>(entity =>
         {
-            entity.HasIndex(e => e.Code, "UQ__Courses__A25C5AA75517965F").IsUnique();
+            entity.HasKey(e => e.Id).HasName("PK_Courses_1");
 
-            entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.Code).HasMaxLength(5);
             entity.Property(e => e.Name).HasMaxLength(50);
         });
 
         modelBuilder.Entity<Lecturer>(entity =>
         {
-            entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.FirstName).HasMaxLength(50);
             entity.Property(e => e.LastName).HasMaxLength(50);
         });
 
         modelBuilder.Entity<Student>(entity =>
         {
-            entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.DateOfBirth).HasColumnType("date");
             entity.Property(e => e.FirstName).HasMaxLength(50);
             entity.Property(e => e.LastName).HasMaxLength(50);
