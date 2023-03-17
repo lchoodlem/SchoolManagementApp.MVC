@@ -18645,8 +18645,18 @@
   "RootNamespace": "SchoolManagementApp.MVC",
   "Documents": [
     {
+      "FilePath": "c:\\Users\\dhood\\Documents\\Applications\\development\\DOTNET\\SchoolManagementApp.MVC\\Views\\Enrollments\\Create.cshtml",
+      "TargetPath": "Views\\Enrollments\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\dhood\\Documents\\Applications\\development\\DOTNET\\SchoolManagementApp.MVC\\Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\dhood\\Documents\\Applications\\development\\DOTNET\\SchoolManagementApp.MVC\\Views\\Classes\\Edit.cshtml",
+      "TargetPath": "Views\\Classes\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -18662,6 +18672,11 @@
     {
       "FilePath": "c:\\Users\\dhood\\Documents\\Applications\\development\\DOTNET\\SchoolManagementApp.MVC\\Views\\Students\\Index.cshtml",
       "TargetPath": "Views\\Students\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\dhood\\Documents\\Applications\\development\\DOTNET\\SchoolManagementApp.MVC\\Views\\Enrollments\\Index.cshtml",
+      "TargetPath": "Views\\Enrollments\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -18685,8 +18700,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\dhood\\Documents\\Applications\\development\\DOTNET\\SchoolManagementApp.MVC\\Views\\Enrollments\\Delete.cshtml",
+      "TargetPath": "Views\\Enrollments\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\dhood\\Documents\\Applications\\development\\DOTNET\\SchoolManagementApp.MVC\\Views\\Courses\\Index.cshtml",
       "TargetPath": "Views\\Courses\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\dhood\\Documents\\Applications\\development\\DOTNET\\SchoolManagementApp.MVC\\Views\\Enrollments\\Edit.cshtml",
+      "TargetPath": "Views\\Enrollments\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -18700,6 +18725,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\dhood\\Documents\\Applications\\development\\DOTNET\\SchoolManagementApp.MVC\\Views\\Classes\\Create.cshtml",
+      "TargetPath": "Views\\Classes\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\dhood\\Documents\\Applications\\development\\DOTNET\\SchoolManagementApp.MVC\\Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
@@ -18710,6 +18740,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\dhood\\Documents\\Applications\\development\\DOTNET\\SchoolManagementApp.MVC\\Views\\Classes\\Index.cshtml",
+      "TargetPath": "Views\\Classes\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\dhood\\Documents\\Applications\\development\\DOTNET\\SchoolManagementApp.MVC\\Views\\Courses\\Create.cshtml",
       "TargetPath": "Views\\Courses\\Create.cshtml",
       "FileKind": "mvc"
@@ -18717,6 +18752,11 @@
     {
       "FilePath": "c:\\Users\\dhood\\Documents\\Applications\\development\\DOTNET\\SchoolManagementApp.MVC\\Views\\Shared\\Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\dhood\\Documents\\Applications\\development\\DOTNET\\SchoolManagementApp.MVC\\Views\\Classes\\Details.cshtml",
+      "TargetPath": "Views\\Classes\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -18745,6 +18785,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\dhood\\Documents\\Applications\\development\\DOTNET\\SchoolManagementApp.MVC\\Views\\Classes\\Delete.cshtml",
+      "TargetPath": "Views\\Classes\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\dhood\\Documents\\Applications\\development\\DOTNET\\SchoolManagementApp.MVC\\Views\\Courses\\Details.cshtml",
       "TargetPath": "Views\\Courses\\Details.cshtml",
       "FileKind": "mvc"
@@ -18752,6 +18797,11 @@
     {
       "FilePath": "c:\\Users\\dhood\\Documents\\Applications\\development\\DOTNET\\SchoolManagementApp.MVC\\Views\\Lecturers\\Delete.cshtml",
       "TargetPath": "Views\\Lecturers\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\dhood\\Documents\\Applications\\development\\DOTNET\\SchoolManagementApp.MVC\\Views\\Enrollments\\Details.cshtml",
+      "TargetPath": "Views\\Enrollments\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
