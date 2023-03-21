@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SchoolManagementApp.MVC.Data;
+using SchoolManagementApp.MVC.Models;
 
 namespace SchoolManagementApp.MVC.Controllers
 {
@@ -21,7 +22,9 @@ namespace SchoolManagementApp.MVC.Controllers
         // GET: Classes
         public async Task<IActionResult> Index()
         {
-            var schoolMgmtDbContext = _context.Classes.Include(q => q.Course).Include(q => q.Lecturer);
+            var schoolMgmtDbContext = _context.Classes
+                        .Include(q => q.Course)
+                        .Include(q => q.Lecturer);
             return View(await schoolMgmtDbContext.ToListAsync());
         }
 
@@ -48,8 +51,8 @@ namespace SchoolManagementApp.MVC.Controllers
         // GET: Classes/Create
         public IActionResult Create()
         {
-            ViewData["CourseId"] = new SelectList(_context.Courses, "Id", "Id");
-            ViewData["LecturerId"] = new SelectList(_context.Lecturers, "Id", "Id");
+
+            CreteSelectList();
             return View();
         }
 
@@ -66,8 +69,8 @@ namespace SchoolManagementApp.MVC.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CourseId"] = new SelectList(_context.Courses, "Id", "Id", @class.CourseId);
-            ViewData["LecturerId"] = new SelectList(_context.Lecturers, "Id", "Id", @class.LecturerId);
+            // if something fails then reload the lists for the class
+            CreteSelectList();
             return View(@class);
         }
 
@@ -84,8 +87,7 @@ namespace SchoolManagementApp.MVC.Controllers
             {
                 return NotFound();
             }
-            ViewData["CourseId"] = new SelectList(_context.Courses, "Id", "Id", @class.CourseId);
-            ViewData["LecturerId"] = new SelectList(_context.Lecturers, "Id", "Id", @class.LecturerId);
+            CreteSelectList();
             return View(@class);
         }
 
@@ -121,8 +123,8 @@ namespace SchoolManagementApp.MVC.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CourseId"] = new SelectList(_context.Courses, "Id", "Id", @class.CourseId);
-            ViewData["LecturerId"] = new SelectList(_context.Lecturers, "Id", "Id", @class.LecturerId);
+             // if something fails then reload the lists for the class
+            CreteSelectList();
             return View(@class);
         }
 
@@ -165,9 +167,86 @@ namespace SchoolManagementApp.MVC.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        public async Task<ActionResult> ManageEnrollments(int classId) 
+        {
+            var @class = await _context.Classes
+                .Include(q => q.Course)
+                .Include(q => q.Lecturer)
+                .Include(q => q.Enrollments)
+                    .ThenInclude(q => q.Student)
+                .FirstOrDefaultAsync(m => m.Id == classId);
+
+            var students = await _context.Students.ToListAsync();
+
+            var model = new ClassEnrollmentViewModel();
+            model.Class = new ClassViewModel 
+                {
+                    Id = @class.Id,
+                    CourseName = $"{@class.Course.Code}: {@class.Course.Name}",
+                    LecturerName = $"{@class.Lecturer.FirstName} {@class.Lecturer.LastName}",
+                    Time = @class.Time.ToString()
+
+                };
+            foreach(var stu in students){
+                model.Students.Add(new StudentEnrollmentViewModel
+                {
+                 Id = stu.Id,
+                 FirstName = stu.FirstName,
+                 LastName = stu.LastName,
+                 IsEnrolled = (@class?.Enrollments.Any(q => q.StudentId == stu.Id))
+                            .GetValueOrDefault()
+
+                });
+            }
+            return View(model);
+
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> EnrollStudent(int classId, int studentId, bool shouldEnroll)
+        {
+            var enrollment = new Enrollment();
+            if(shouldEnroll == true)
+            {
+                enrollment.ClassId = classId;
+                enrollment.StudentId = studentId;
+                await _context.Enrollments.AddAsync(enrollment);
+            } 
+            else 
+            {
+                enrollment = await _context.Enrollments.FirstOrDefaultAsync(
+                    q => q.ClassId == classId && q.StudentId == studentId);
+                if(enrollment != null){
+                    _context.Remove(enrollment);
+                }
+            }
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(ManageEnrollments), new { id = classId}); // advanced Redirect passing ID
+
+        }
+
+
         private bool ClassExists(int id)
         {
           return (_context.Classes?.Any(e => e.Id == id)).GetValueOrDefault();
+        }
+
+        private void CreteSelectList()
+        {
+           var courses = _context.Courses.Select(crs => new 
+                {
+                        CourseName = $"{crs.Code}: {crs.Name} (credits: {crs.Credits})",
+                        crs.Id 
+                });    
+            ViewData["CourseId"] = new SelectList(courses, "Id", "CourseName");
+        
+             var lecturers = _context.Lecturers.Select(lect => new 
+                {
+                        FullName = $"{lect.FirstName} {lect.LastName}",
+                        lect.Id 
+                });
+            ViewData["LecturerId"] = new SelectList(lecturers, "Id", "FullName");
+ 
         }
     }
 }
