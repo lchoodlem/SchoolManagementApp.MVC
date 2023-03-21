@@ -1,5 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using SchoolManagementApp.MVC.Data;
+using AspNetCoreHero.ToastNotification;
+using AspNetCoreHero.ToastNotification.Extensions;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +10,11 @@ var builder = WebApplication.CreateBuilder(args);
 var conn = builder.Configuration.GetConnectionString("SchoolMgmtDBConn");
 builder.Services.AddDbContext<SchoolMgmtDbContext>(q => q.UseSqlServer(conn));
 builder.Services.AddControllersWithViews();
+builder.Services.AddNotyf(c => {
+    c.DurationInSeconds = 5;
+    c.IsDismissable = true;
+    c.Position = NotyfPosition.TopRight;
+});
 
 var app = builder.Build();
 
@@ -24,6 +32,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+app.UseNotyf();
 
 app.MapControllerRoute(
     name: "default",

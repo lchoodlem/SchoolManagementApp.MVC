@@ -15157,6 +15157,40 @@
         }
       },
       {
+        "HashCode": 235002269,
+        "Kind": "MVC.ViewComponent",
+        "Name": "__Generated__NotyfViewComponentTagHelper",
+        "AssemblyName": "AspNetCoreHero.ToastNotification",
+        "CaseSensitive": false,
+        "TagMatchingRules": [
+          {
+            "TagName": "vc:notyf"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "ITagHelper",
+          "Common.TypeName": "__Generated__NotyfViewComponentTagHelper",
+          "MVC.ViewComponent.Name": "Notyf"
+        }
+      },
+      {
+        "HashCode": 1988079194,
+        "Kind": "MVC.ViewComponent",
+        "Name": "__Generated__ToastifyViewComponentTagHelper",
+        "AssemblyName": "AspNetCoreHero.ToastNotification",
+        "CaseSensitive": false,
+        "TagMatchingRules": [
+          {
+            "TagName": "vc:toastify"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "ITagHelper",
+          "Common.TypeName": "__Generated__ToastifyViewComponentTagHelper",
+          "MVC.ViewComponent.Name": "Toastify"
+        }
+      },
+      {
         "HashCode": -882502826,
         "Kind": "Components.Bind",
         "Name": "Bind",
