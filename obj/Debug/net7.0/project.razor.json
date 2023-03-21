@@ -18750,6 +18750,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\dhood\\Documents\\Applications\\development\\DOTNET\\SchoolManagementApp.MVC\\Views\\Classes\\ManageEnrollments.cshtml",
+      "TargetPath": "Views\\Classes\\ManageEnrollments.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\dhood\\Documents\\Applications\\development\\DOTNET\\SchoolManagementApp.MVC\\Views\\Shared\\Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
       "FileKind": "mvc"
