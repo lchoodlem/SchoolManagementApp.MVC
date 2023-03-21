@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AspNetCoreHero.ToastNotification.Abstractions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -13,9 +14,11 @@ namespace SchoolManagementApp.MVC.Controllers
     public class ClassesController : Controller
     {
         private readonly SchoolMgmtDbContext _context;
+        private readonly INotyfService _notyfService;
 
-        public ClassesController(SchoolMgmtDbContext context)
+        public ClassesController(SchoolMgmtDbContext context, INotyfService notyfService)
         {
+            _notyfService = notyfService;
             _context = context;
         }
 
@@ -211,17 +214,21 @@ namespace SchoolManagementApp.MVC.Controllers
                 enrollment.ClassId = classId;
                 enrollment.StudentId = studentId;
                 await _context.Enrollments.AddAsync(enrollment);
+                _notyfService.Success($"Student Enrolled Successfully");
             } 
             else 
             {
                 enrollment = await _context.Enrollments.FirstOrDefaultAsync(
                     q => q.ClassId == classId && q.StudentId == studentId);
                 if(enrollment != null){
-                    _context.Remove(enrollment);
+                    _context.Remove(enrollment);                  
+                    _notyfService.Warning($"Student has Unenrolled successfully");
+                } else {
+                    _notyfService.Error($"Student was not found to be enrolled.");
                 }
             }
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(ManageEnrollments), new { id = classId}); // advanced Redirect passing ID
+            return RedirectToAction(nameof(ManageEnrollments), new { classId = classId }); // advanced Redirect passing ID
 
         }
 

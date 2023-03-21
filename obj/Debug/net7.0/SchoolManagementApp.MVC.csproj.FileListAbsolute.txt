@@ -273,3 +273,6 @@ C:\Users\dhood\Documents\Applications\development\DOTNET\SchoolManagementApp.MVC
 C:\Users\dhood\Documents\Applications\development\DOTNET\SchoolManagementApp.MVC\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 C:\Users\dhood\Documents\Applications\development\DOTNET\SchoolManagementApp.MVC\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\dhood\Documents\Applications\development\DOTNET\SchoolManagementApp.MVC\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Users\dhood\Documents\Applications\development\DOTNET\SchoolManagementApp.MVC\bin\Debug\net7.0\AspNetCoreHero.ToastNotification.Views.dll
+C:\Users\dhood\Documents\Applications\development\DOTNET\SchoolManagementApp.MVC\bin\Debug\net7.0\AspNetCoreHero.ToastNotification.dll
+C:\Users\dhood\Documents\Applications\development\DOTNET\SchoolManagementApp.MVC\obj\Debug\net7.0\SchoolManagementApp.MVC.MvcApplicationPartsAssemblyInfo.cs
